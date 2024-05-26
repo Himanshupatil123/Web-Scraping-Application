@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     {% load static %}
+    <link rel="stylesheet" href="{% static 'loginstyle.css'%}">
+</head>
+<body>
+
+    <form action="login" method="POST">
+        {% csrf_token %}
+        <div class="imgcontainer">
+            <img src="{% static 'images/img_avatar2.png' %}" alt="Avatar" class="avatar">
+        </div>
+
+        <div class="container">
+          <label ><b>Username</b></label>
+          <input type="text" placeholder="Enter Username" name="uname" required>
+
+          <label><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="psw" required>
+
+          <button type="submit">Login</button>
+
+        </div>
+
+        <div class="container" style="background-color:#f1f1f1">
+          <button type="button" class="cancelbtn"><a href="signup" style="text-decoration:none; color:white;">Sign Up</a></button>
+          <button type="button" class="cancelbtn" style="float:right;"><a href="forgot_password" style="text-decoration:none; color:white;">Forgot Password</a></button>
+
+<!--            <span class="psw">Forgot <a href="forgot_password">password?</a></span>-->
+        </div>
+      </form>
+
+
+
+</body>
+</html>

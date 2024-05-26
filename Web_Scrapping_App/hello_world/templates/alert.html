@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<style>
+
+.alert_parent{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 200px;
+}
+
+.alert_container
+{
+    border: 3px solid black;
+    width: 400px;
+    padding: 50px;
+    border-radius: 2%;
+}
+.alert_container h3
+{
+    color: black;
+}
+
+
+
+
+</style>
+
+
+
+</head>
+<body>
+
+
+<h2>JavaScript Alert</h2>
+
+<button onclick="myFunction()">Try it</button>
+
+<script>
+function myFunction() {
+  alert("I am an alert box!");
+  history.back();
+
+
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+<h1>Alert Page</h1>
+
+
+<form action="alert" method="post">
+ {% csrf_token %}
+   {% if message %}
+    <p style="color:green;">{{message}}</p>
+    {% elif error %}
+    <p style="color:red;">{{error}}</p>
+    {% endif %}
+
+    <div class="alert_parent">
+        <div class="alert_container">
+
+            <h3>Set Price</h3>
+            <input type="number" name="textfield">
+            <a href="">
+                <button type="submit" onclick="myFunction()">Set Alert</button>
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+</form>
+
+
+
+
+
+</body>
+</html>

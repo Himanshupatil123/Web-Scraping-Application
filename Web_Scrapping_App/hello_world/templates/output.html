@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css'%}">
+    <link rel="stylesheet" href="{% static 'menubar.css'%}">
+<script src="https://kit.fontawesome.com/2af97755c5.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+
+<!--sidebar menu-->
+
+   <div class="main-sidebar">
+    <input type="checkbox" id="check">
+    <label for="check">
+        <i class="fa-solid fa-bars" id="btn"></i>
+        <i class="fa-solid fa-times" id="cancel"></i>
+    </label>
+    <div class="sidebar">
+
+        <header> My Profile</header>
+       <ul>
+      <li><a href="#"> <i class="fa-solid fa-gauge"></i>Profile</a></li>
+       <li><a href="#"> <i class="fa-regular fa-address-book"></i>Contact Us</a></li>
+       <li><a href="{% url 'manage_wishlist' %}?param1={{param1}}&param2={{param2}}&param3={{param3}}"> <i class="fa-regular fa-address-book"></i>Wishlist Products</a></li>
+       <li><a href="{% url 'logout' %}"> <i class="fa-regular fa-address-book"></i>Logout</a></li>
+    </ul>
+    </div>
+</div>
+<!--///////////-->
+
+<div class="container">
+
+<form action="result">
+ <i class="fas fa-search"></i>
+     <input type="hidden" name="param1" value="{{param1}}">
+        <input type="hidden" name="param2" value="{{param2}}">
+<!--    <input type="text" name="search_box" placeholder="What are you looking for" value="{{param3}}">-->
+    <input type="text" name="param3" placeholder="{{param3}}" value="{{param3}}" >
+
+    <button type="submit">Search</button>
+
+</form>
+
+
+</div>
+
+<!--main products boxes-->
+
+
+<div class="box">
+
+<div class="box1">
+        <div class="product-image">
+         {% if Product_image == 'NA' %}
+        <img src="{% static 'images/no_product_found.png' %}" alt="">
+        {% else %}
+         <img src="{{Product_image}}" alt="">
+        {% endif %}
+        </div>
+
+        <div class="product-name">
+            {% if amazon_name == 'NA' %}
+            <p>No Product Found </p>
+            {% else %}
+            <p>{{amazon_name}}</p>
+            {% endif %}
+        </div>
+
+    <div class="product-btn">
+            <img src="{% static 'images/amazon_logo (2).png'%}" alt="">
+            <div class="product-price">
+                <h3>{{amazon_price}}</h3>
+            </div>
+
+            <a href="{{product_link}}">
+                {% if product_link == 'NA' %}
+            <button type="submit" disabled>BUY</button>
+                {% else %}
+                <button type="submit">BUY</button>
+              {% endif %}
+            </a>
+
+        </div>
+
+</div>
+
+
+<div class="box1">
+
+    <div class="product-image">
+        {% if flipkart_Product_image == 'NA' %}
+        <img src="{% static 'images/no_product_found.png' %}" alt="">
+        {% else %}
+    <img src="{{flipkart_Product_image}}" alt="">
+        {% endif %}
+    </div>
+    <div class="product-name">
+        {% if flipkart_Product_image == 'NA' %}
+        <p>No Product Found</p>
+        {% else %}
+        <p>{{flipkart_name}}</p>
+        {% endif %}
+    </div>
+    <div class="product-btn">
+        <img src="{% static 'images/flipkart_logo.png'%}" alt="">
+        <div class="product-price">
+            <h3>{{flipkart_price}}</h3>
+        </div>
+        <a href="{{flipkart_product_link}}">
+            {% if flipkart_Product_image == 'NA' %}
+            <button type="submit" disabled>BUY</button>
+            {% else %}
+            <button type="submit">BUY</button>
+            {% endif %}
+        </a>
+    </div>
+
+</div>
+
+<div class="box1">
+
+    <div class="product-image">
+        {% if chroma_Product_image == 'NA' %}
+        <img src="{% static 'images/no_product_found.png' %}" alt="">
+        {% else %}
+    <img src="{{chroma_Product_image}}" alt="">
+        {% endif %}
+    </div>
+    <div class="product-name">
+        {% if chroma_Product_image == 'NA' %}
+        <p>No Product Found</p>
+        {% else %}
+        <p>{{chroma_name}}</p>
+        {% endif %}
+    </div>
+    <div class="product-btn">
+        <img src="{% static 'images/croma_logo.png'%}" alt="">
+        <div class="product-price">
+            <h3>{{chroma_price}}</h3>
+        </div>
+        <a href="{{chroma_product_link}}">
+            {% if chroma_Product_image == 'NA' %}
+            <button type="submit" disabled>BUY</button>
+            {% else %}
+            <button type="submit">BUY</button>
+            {% endif %}
+        </a>
+    </div>
+
+</div>
+
+<div class="box1">
+
+    <div class="product-image">
+        {% if reliance_Product_image == 'NA' %}
+        <img src="{% static 'images/no_product_found.png' %}" alt="">
+        {% else %}
+    <img src="{{reliance_Product_image}}" alt="">
+        {% endif %}
+    </div>
+    <div class="product-name">
+        {% if reliance_Product_image == 'NA' %}
+        <p>No Product Found</p>
+        {% else %}
+        <p>{{reliance_name}}</p>
+        {% endif %}
+    </div>
+    <div class="product-btn">
+        <img src="{% static 'images/reliance_logo.svg'%}" alt="">
+        <div class="product-price">
+            <h3>{{reliance_price}}</h3>
+        </div>
+        <a href="{{reliance_product_link}}">
+            {% if reliance_Product_image == 'NA' %}
+            <button type="submit" disabled>BUY</button>
+            {% else %}
+            <button type="submit">BUY</button>
+            {% endif %}
+        </a>
+    </div>
+
+</div>
+
+</div>
+
+
+<a href="{% url 'alert_price' %}?param1={{param1}}&param2={{param2}}&param3={{param3}}">
+<button type="button">Add To Wishlist</button>
+</a>
+
+
+
+</body>
+</html>
