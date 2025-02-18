@@ -148,53 +148,13 @@ def home(request):
 
                         break
 
-                        #
-                        # for n in p_name:
-                        #     print(n.getText())
-                        # if (len(price) > 0):
-                        #     amazon_price = price[0].getText()
-                        # low_str = str(p_name[0].getText())
-                        # res = [sub for sub in findstr if sub in low_str.lower()]
-                        #
-                        # print(res)
-                        # if(len(price)>0):
-                        #     if (max_priority < len(res)):
-                        #         max_priority = int(len(res))
-                        #         priority_div = i
-                        #         res1 = res
-                        #         if (len(res) == len(findstr)):
-                        #             break
-                        #
-                        # print("---------------------------------")
 
                 print("max_priority=")
                 print(max_priority)
                 print("Priority div=")
                 print(priority_div)
 
-                # if (priority_div != -1):
-                #     common = soup.select('.puis-card-container.s-card-container.s-overflow-hidden.aok-relative ')[
-                #         priority_div]
-                #
-                #     common1 = common.select('.a-link-normal.s-no-outline')[0]
-                #     amazon_product_link = "https://www.amazon.in" + common1.get('href')
-                #     image_amazon = common.select('.s-image')
-                #     amazon_product_image = image_amazon[0].get('src')
-                #     price= common.select('.a-price-whole')[0].getText()
-                #     print(price)
-                #     amazon_price=price
-                #     amazon_name = common.select('.a-color-base.a-text-normal')[0].getText()
-                #     # print("Product Name=")
-                #     # for n in p_name:
-                #     #     print(n.getText())
-                # else:
-                #     print("Products :" + name + " didn't get on amazon")
-                # if (flag == False):
-                #     amazon_price = "NA"
-                #     amazon_name = "NA"
-                #     amazon_product_link = 'NA'
-                #     amazon_product_image = 'NA'
-
+             
                 low_str = str(amazon_name)
                 res = [sub for sub in findstr if sub in low_str.lower()]
                 print("RES=")
